@@ -10,7 +10,7 @@ package sliceHandle
 返回值：
 	删除后的切片([]int)，是否成功(bool)
 */
-func addOrDelS(slice []int, index int, n int, adds ...int) ([]int, bool) {
+func AddOrDelS(slice []int, index int, n int, adds ...int) ([]int, bool) {
 	if len(slice) == 0 || index > index+n || index < 0 {
 		return slice, false
 	} else {
