@@ -19,7 +19,6 @@ func AddOrDelS(slice []int, index int, n int, adds ...int) ([]int, bool) {
 		for _, v := range adds {
 			temp = append(temp, v)
 		}
-		fmt.Println(temp, slice)
 		if index+n > len(slice) {
 			return append(temp, slice[len(slice):]...), true
 		} else {
