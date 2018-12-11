@@ -28,10 +28,10 @@ var status = Status{false, ""} //反馈信息
 func Existed(user User) bool {
 	for _, value := range userArr {
 		if value.Username == user.Username { //判断用户名是否存在
-			return false
+			return true
 		}
 	}
-	return true
+	return false
 }
 
 //验证用户输入的是否正确
@@ -49,7 +49,7 @@ func Verify(user User) bool {
 func Register(userInfo []byte) {
 	var user User
 	json.Unmarshal(userInfo, &user) //将json转换成结构体
-	if !Existed(user) {             //判断是否已经注册过
+	if Existed(user) {              //判断是否已经注册过
 		status = Status{false, "用户名已存在"} //将状态回馈信息写入
 		return                           //一旦失败，程序就没必要再执行了
 	}
